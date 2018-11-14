@@ -26,7 +26,7 @@ export const getProjectOpenButtonClass = (isCurrent) => {
 
 export const getToggledButtonClass = (stateByInd) => {             
       return cn({      
-        'btn btn-outline-secondary': true,        
+        'btn btn-outline-secondary mx-1 my-1': true,        
         'active': stateByInd      
       });    
     };

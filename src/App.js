@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import pfdata from './pfdata';
+import personal from './personal';
 import {getOrderById, isMatch, createFilterPositionByData, getCurrentFilterState} from './functions';
 import ProjectList from './components/ProjectList';
 import Header from './components/Header';
@@ -22,12 +23,10 @@ class App extends Component {
     this.setState({ filterStates: newStates});
   };
 
-
   changeCondition = () => (e) =>  {
     e.preventDefault();  
     this.setState({ isFilterConjunction: !this.state.isFilterConjunction});
   };
-
 
   resetFilter = () => (e) =>  {
     e.preventDefault();  
@@ -41,7 +40,7 @@ class App extends Component {
 
     return (     
       <div className="container">
-        <Header>Нечто, что обычно называют словом "Портфолио"</Header>
+        <Header data={personal}/>
         <Filter filterPositions = {this.filterPositions} filterStates = {this.state.filterStates}  isFilterConjunction = {this.state.isFilterConjunction}
           toggle = {this.toggle} changeCondition = {this.changeCondition} resetFilter = {this.resetFilter}/>
         }
