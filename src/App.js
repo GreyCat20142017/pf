@@ -42,8 +42,7 @@ class App extends Component {
       <div className="container">
         <Header data={personal}/>
         <Filter filterPositions = {this.filterPositions} filterStates = {this.state.filterStates}  isFilterConjunction = {this.state.isFilterConjunction}
-          toggle = {this.toggle} changeCondition = {this.changeCondition} resetFilter = {this.resetFilter}/>
-        }
+          toggle = {this.toggle} changeCondition = {this.changeCondition} resetFilter = {this.resetFilter}/>        
         <ProjectList projects={projects}/>       
       </div>
       )

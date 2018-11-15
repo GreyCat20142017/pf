@@ -1,0 +1,10 @@
+.header {
+	position: relative;
+}
+
+.header__switcher {
+    position: absolute;
+    z-index: 1;
+    left: 15px;
+    top: 15px;
+}
