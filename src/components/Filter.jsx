@@ -17,10 +17,10 @@ export default class Filter extends Component {
 				</div>
 
 				<div className='filter__controls row justify-content-center flex-wrap'>
-					<button className='filter__reset btn btn-warning ml-2 mt-1' type="button" autoComplete="off"  onClick={this.props.resetFilter()}>
+					<button className='filter__reset btn btn-sm btn-warning ml-2 mt-1' type="button" autoComplete="off"  onClick={this.props.resetFilter()}>
 						Сбросить
 					</button>
-					<button className='filter__operation btn btn-warning ml-2 mt-1' type="button" autoComplete="off"  onClick={this.props.changeCondition()}>
+					<button className='filter__operation btn btn-sm btn-secondary ml-2 mt-1' type="button" autoComplete="off"  onClick={this.props.changeCondition()}>
 						{isFilterConjunction ?  'И' : 'ИЛИ'}
 					</button>
 				</div>	

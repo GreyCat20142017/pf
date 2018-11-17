@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import './Header.css';
 
 const Title = (props) => (Title &&  <h4>{props.children}</h4>);
-const Subtitle = (props) => (Subtitle &&  <small className='header__prolog'>{props.children}</small>);
+const Subtitle = (props) => (Subtitle &&  <p><small className='header__prolog'>{props.children}</small></p>);
 const Ava = (props) => (Ava && 
 	<div className ='header__person col-4 col-sm-4 col-md-2'>
-		<div className='header__ava-wrapper card w-100'>	
-			<div className='header__nickname card-header text-right p-1'><small>{props.nickname}</small></div>
+		<div className='header__ava-wrapper card w-100 bg-light'>	
+			<div className='header__nickname card-text text-right p-1'><small>{props.nickname}</small></div>
 			<img className='header__ava card-img-top img-thumbnail img-responsive' src={'./img/ava.jpg'} alt='Аватарка'/>			
-			<div className='header__name card-footer text-right p-1'><small>{props.name}</small></div>
+			<div className='header__name card-text text-right p-1'><small>{props.name}</small></div>
 		</div>				
 	</div>
 );
@@ -42,7 +42,7 @@ export default class Header extends Component {
 		const aboutSwitcherText = aboutIsCollapsed ? 'Развернуть подробности...' : 'Свернуть подробности...';
 		const headerSwitcherStyle = 'header__switcher btn btn-warning btn-sm ' + (allIsCollapsed ? 'btn-block' : 'p-2');
 		return (
-		<div className='header'>			
+		<div className='header bg-light shadow-sm px-2'>			
 			<h4 className='header__title text-center'>{title}</h4>
 			<div className='header__wrapper py-1 my-1'>
 			<button className={headerSwitcherStyle} onClick={this.onAllButtonClick} 
@@ -56,7 +56,9 @@ export default class Header extends Component {
 					<Subtitle>{subtitle}</Subtitle>
 					<p className='header__text text-muted mt-3'>					
 						<small className={'header__about '+(aboutIsCollapsed ? 'collapse' : '')} id='collapse'>{about}</small>						
-						<button className='header__about-switcher btn btn-sm btn-outline-secondary' onClick={this.onAboutButtonClick} title={aboutSwitcherText}>{aboutSwitcherText}</button>
+						<button className='header__about-switcher btn btn-sm btn-outline-secondary' 
+							onClick={this.onAboutButtonClick} title={aboutSwitcherText}>{aboutSwitcherText}
+						</button>
 					</p>		
 				</div>
 				</div>

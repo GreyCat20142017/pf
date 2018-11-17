@@ -43,7 +43,7 @@ export default class Project extends Component {
 
         <div className='project__buttons card-footer bg-transparent'>
           <a className={getProjectOpenButtonClass(project.isCurrentProject)} href={project.link} id={project.id+'-open'}>Открыть</a>
-          <a className='btn btn-outline-secondary btn-block' href={project.git}>Код на GitHub</a>
+          <a className='btn btn-outline-secondary btn-block' href={project.git} id={project.id+'-git'}>Код на GitHub</a>
           <button className='btn btn-outline-secondary btn-block text-centerd-flex d-md-none' type='button' onClick={this.switchOpenState}
           title = {(isForcedOpen ? 'Свернуть' : 'Развернуть') + ' блок с подробной информацией и скриншотом'}>
           {isForcedOpen ? 'Свернуть' : 'Развернуть'}</button>

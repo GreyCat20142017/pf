@@ -38,14 +38,14 @@ class App extends Component {
    const currentFilter = getCurrentFilterState(this.filterPositions, this.state.filterStates); 
    const projects = this.projects.filter(project => (currentFilter.length === 0 ? true : isMatch(currentFilter, project.details, this.state.isFilterConjunction)));   
 
-    return (     
-      <div className="container">
+    return (         
+      <div className='container'>
         <Header data={personal}/>
         <Filter filterPositions = {this.filterPositions} filterStates = {this.state.filterStates}  isFilterConjunction = {this.state.isFilterConjunction}
           toggle = {this.toggle} changeCondition = {this.changeCondition} resetFilter = {this.resetFilter}/>        
         <ProjectList projects={projects}/>       
-      </div>
-      )
+      </div>      
+    )
   }
 }
 

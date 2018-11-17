@@ -71,8 +71,8 @@ export default [
   link: 'https://greycat20142017.github.io/483989-kekstagram/',
   git: 'https://github.com/GreyCat20142017/483989-kekstagram',
   description: 'Cервис просмотра изображений',
-  details: ["JS5"],
-  info: 'Только модули на JS-5. Верстка - HTML Academy, адаптив',
+  details: ["JS ES5"],
+  info: 'Только модули на JS ES5. Верстка - HTML Academy, адаптив',
   adaptive: true, 
   IE: false
 },
@@ -84,8 +84,8 @@ export default [
   link: 'https://greycat20142017.github.io/483989-candyshop/',
   git: 'https://github.com/GreyCat20142017/483989-candyshop',
   description: 'Интернет-магазин',
-  details: ["JS5"],
-  info: 'Только модули на JS-5. Верстка - HTML Academy, фикс. макет',
+  details: ["JS ES5"],
+  info: 'Только модули на JS ES5. Верстка - HTML Academy, фикс. макет',
   adaptive: false, 
   IE: false
 },
