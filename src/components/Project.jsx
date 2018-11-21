@@ -24,7 +24,7 @@ export default class Project extends Component {
     const isForcedOpen = this.state.isForcedOpen;
  
     return  (
-      <div className='project card border-secondary h-100 shadow-lg' tab-index='0' style={{maxWidth: '310px'}}>
+      <div className='project card border-secondary h-100 shadow-lg' tab-index='0' style={{width: '310px'}}>
         <h2 className='project__name card-header text-center bg-light' title={project.description + ', '+project.details}>{project.name}</h2>
 
         <div className={'project__body card-body h-100' + (isForcedOpen ? '' : ' d-none d-md-block')}>

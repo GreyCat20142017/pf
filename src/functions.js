@@ -1,5 +1,11 @@
 import cn from 'classnames';
 
+const dropdownDelay = 444;
+
+const keyCodes = {Esc: 27, Enter: 13}; 
+
+export const getKeyCodes = () => keyCodes; 
+
 export const getOrderById = (left, right) => {
 	if (left.id > right.id) {
 		return -1;
@@ -10,11 +16,9 @@ export const getOrderById = (left, right) => {
 	}
 }; 
 
-export const getCurrentProjectClass = (isCurrent) => {             
-	return cn({      		
-		['col-10 col-md-6 col-lg-4 mx-auto pt-4'+ (isCurrent ? ' order-last' : '' )] : true             				
-	});    
-};
+export const getDropdownDelay = () => dropdownDelay;
+
+export const getCurrentProjectClass = () => 'col-10 col-md-6 col-lg-4 mx-auto pt-4';
 
 export const getProjectOpenButtonClass = (isCurrent) => {             
 	return cn({      
@@ -25,11 +29,11 @@ export const getProjectOpenButtonClass = (isCurrent) => {
 };
 
 export const getToggledButtonClass = (stateByInd) => {             
-      return cn({      
-        'btn btn-outline-secondary btn-sm mx-1 my-1': true,        
-        'active': stateByInd      
-      });    
-    };
+  return cn({      
+    'btn btn-outline-secondary btn-sm mx-1 my-1': true,        
+    'active': stateByInd      
+  });    
+};
 
 export const isMatch = (currentFilter, projectDetails, isConjunction) => {             
 	return isConjunction ? 
@@ -61,3 +65,11 @@ export const getCurrentFilterState = (positions, states)  => {
 		});}
 		return temporaryArray;		
 	};
+
+
+	export const getArrayFromObject = function (obj) {
+		return Object.keys(obj).map(function (key) {
+			return obj[key];
+		});
+	};
+

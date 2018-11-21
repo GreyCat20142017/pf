@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import pfdata from './pfdata';
 import personal from './personal';
 import {getOrderById, isMatch, createFilterPositionByData, getCurrentFilterState} from './functions';
-import ProjectList from './components/ProjectList';
 import Header from './components/Header';
 import Filter from './components/Filter';
+import ProjectList from './components/ProjectList';
+import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
@@ -44,6 +45,7 @@ class App extends Component {
         <Filter filterPositions = {this.filterPositions} filterStates = {this.state.filterStates}  isFilterConjunction = {this.state.isFilterConjunction}
           toggle = {this.toggle} changeCondition = {this.changeCondition} resetFilter = {this.resetFilter}/>        
         <ProjectList projects={projects}/>       
+        <Footer contacts={personal.contacts} nickname={personal.nickname}/>
       </div>      
     )
   }

@@ -90,18 +90,17 @@ export default [
   IE: false
 },
 
-{id: 'id-8',
+{id: 'id-0',
   name: 'Портфолио',
   shortName: 'pf',
   about: 'Чтобы было. И для ознакомления с Bootstrap',
   link: '#',
-  git: '#',
+  git: 'https://github.com/GreyCat20142017/pf',
   description: 'Портфолио',
   details: ["React", "Bootstrap"],
-  info: 'Некоторые компоненты Bootstrap',
+  info: 'Просто попытки применить как можно больше разных классов Bootstrap',
   adaptive: true, 
   IE: true,
   isCurrentProject: true
 }
-
 ]

@@ -24,7 +24,6 @@ export default class Filter extends Component {
 						{isFilterConjunction ?  'И' : 'ИЛИ'}
 					</button>
 				</div>	
-
 			</div>
 
 		)
