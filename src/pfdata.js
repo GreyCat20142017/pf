@@ -102,5 +102,18 @@ export default [
   adaptive: true, 
   IE: true,
   isCurrentProject: true
+},
+
+{id: 'id-8',
+  name: 'ArtActive',
+  shortName: 'artactive',
+  about: 'Просто верстка для тренировки навыков',
+  link: 'https://greycat20142017.github.io/artactive/',
+  git: 'https://github.com/GreyCat20142017/artactive',
+  description: 'Сайт полиграфической студии',
+  details: ["Верстка", "Gulp", "SASS"],
+  info: '1 адаптивная страница, мобильное меню, индикатор прокрутки',
+  adaptive: true, 
+  IE: true
 }
 ]

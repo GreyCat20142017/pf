@@ -5,7 +5,7 @@ export default class Filter extends Component {
 
 	render () {
 		const {filterPositions, filterStates, isFilterConjunction} = this.props;
-
+		
 		return (
 			<div className='filter py-2 py-md-3 my-2 my-md-1'>
 				<div className='filter__category row justify-content-center flex-wrap'>						

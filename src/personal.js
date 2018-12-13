@@ -1,14 +1,23 @@
 export default 
 {id: `personal`,
-  name: `Кто-то там`,
-  title: `Нечто, напоминающее то, что обычно называют словом "Портфолио"`,
-  nickname: `Здесь будет ник`,
-  subtitle: `Затрудняюсь классифицировать себя как-либо, но некоторыми вещами из набора инструментов начинающего фронтендера 
-      до некоторой степени пользоваться научилась... Если бы нашлась удаленная работа - было бы отлично :-)`,
-  about: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint soluta distinctio, qui fugit ex placeat nemo quibusdam, 
-  		perferendis delectus expedita sunt harum nobis dolores commodi, aspernatur in eveniet explicabo quisquam...`,    
-  contacts: {
-    github: {type: `GitHub`, name: `ПрофильНаГитхабе`, link: `https://github.com/тПрофильНаГитхабе`, icon: `git`}, 
-    email: {type: `E-mail`, name: `ЭтоПочта@mail.ru`, link: `mailto: mailwillbehere@mail.ru`, icon: `mail`}
- }   
+name: `Кто-то там`,
+title: `Нечто, напоминающее то, что обычно называют словом "Портфолио"`,
+nickname: `Здесь будет ник`,
+subtitle: `Затрудняюсь классифицировать себя как-либо, но некоторыми вещами из набора инструментов начинающего фронтендера 
+до некоторой степени пользоваться научилась... Если бы нашлась удаленная работа - было бы отлично :-)`,
+about: [
+  {title: `О портфолио`,
+  content: `Кроме цели обзавестись портфолио, была странная цель использовать как можно больше классов Bootstrap-4. 
+  Для ознакомления с ними. Правда, полученные в результате сборки стили мне совсем не понравились. :-(`},
+  {title: `О проектах`,
+  content: `На проекты оказали влияние посещенные интенсивы HTML Academy. 
+    Проекты отсортированы в порядке убывания сроков создания (за исключением самого портфолио)`},
+  {title: `О себе`,
+  content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, error. - ...`}    
+],    
+contacts: {
+  github: {type: `GitHub`, name: `ПрофильНаГитхабе`, link: `https://github.com/ПрофильНаГитхабе`, icon: `git`}, 
+  email: {type: `E-mail`, name: `ЭтоПочта@mail.ru`, link: `mailto: ЭтоПочта@mail.ru`, icon: `mail`}
+},
+pfstatic: `https://github.com/ПрофильНаГитхабе/pfstatic.html`   
 }

@@ -67,8 +67,8 @@ export default class ProjectList extends Component {
 						<li key={item.id} className={'project__item d-flex justify-content-center ' + getCurrentProjectClass(item.isCurrentProject)}>
 							<Project project={item}/> 
 						</li>)}
-				</ul>;	
-			</div>	
+				</ul>
+			</div>		
 		return (<div>			
 				{(projects.length === 0) ? <p className='text-center mt-3'>Ничего не найдено. Вероятно нужно проверить условия фильтра...</p> : content}
 			</div>)  
