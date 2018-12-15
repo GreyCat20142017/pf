@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +23,6 @@ class App extends Component {
       isFilterConjunction: false    
     };
   }
-
 
   toggle = (ind) => (e) =>  {
     e.preventDefault();
@@ -45,13 +44,17 @@ class App extends Component {
 
   render() {
      const currentFilter = getCurrentFilterState(this.filterPositions, this.state.filterStates); 
-     const projects = this.projects.filter(project => (currentFilter.length === 0 ? true : isMatch(currentFilter, project.details, this.state.isFilterConjunction)));   
+     const projects = this.projects.filter(
+      project => (currentFilter.length === 0 ? true : isMatch(currentFilter, project.details, this.state.isFilterConjunction))
+     );   
 
       return (         
         <div className='container w-100'>
+
           <ErrorBoundary pfstatic={personal.pfstatic}>
             <Header data={personal}/>
           </ErrorBoundary>
+
           <ErrorBoundary pfstatic={personal.pfstatic}>
             <Filter 
               filterPositions = {this.filterPositions} 
@@ -62,6 +65,7 @@ class App extends Component {
               resetFilter = {this.resetFilter}/>        
             <ProjectList projects={projects}/> 
           </ErrorBoundary>
+
           <Footer contacts={personal.contacts} nickname={personal.nickname}/>
         </div>      
       )

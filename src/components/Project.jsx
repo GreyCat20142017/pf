@@ -6,7 +6,25 @@ const CARD_WIDTH = 310;
 const CARD_HEADER_HEIGHT = 48;
 const CARD_REVERT_HEIGHT = 258;
 
+const OpenLink = (props) => {
+  const {project, isIE} = props;
+  return  (!project.IESupport && isIE) ?
+    (<button className={'project__button ' + getProjectOpenButtonClass(project.isCurrentProject)} type='button' disabled>
+      {'Не поддерживается в IE'} 
+    </button>)
+  :
+    (<a 
+      className={'project__button ' + getProjectOpenButtonClass(project.isCurrentProject)} 
+      href={project.link} 
+      id={project.id + '-open'}>
+      {'Открыть'}
+    </a>
+  )
+};
+
+
 export default class Project extends Component {
+  static OpenLink = OpenLink;
 
   static defaultProps = {
     isForcedOpen: false      
@@ -22,7 +40,7 @@ export default class Project extends Component {
   }
 
   render() {
-    const {project} = this.props;
+    const {project, isIE} = this.props;
     const details = project.details.join(', ');
     const isForcedOpen = this.state.isForcedOpen;
     const revertStyle = {height: CARD_REVERT_HEIGHT + 'px'};
@@ -49,8 +67,8 @@ export default class Project extends Component {
             
             <div className='project__backside shadow-sm mb-3' style={revertStyle}>
                 <p>{project.info}</p>
-                <p className='font-weight-bold border'>{'Поддержка IE-11: '+ (project.IE ? 'да' : 'нет')}</p>
-                <p className='font-weight-bold border'>{'Адаптивность: '+ (project.adaptive ? 'да' : 'нет')}</p>
+                <p className='project__specific font-weight-bold border'>{'Поддержка IE-11: '+ (project.IESupport ? 'да' : 'нет')}</p>
+                <p className='project__specific font-weight-bold border'>{'Адаптивность: '+ (project.adaptive ? 'да' : 'нет')}</p>
             </div>
           </a>
           <h6 className='project__details card-header my-2 badge'> {details} </h6>
@@ -58,21 +76,20 @@ export default class Project extends Component {
         </div>
 
         <div className='project__buttons card-footer bg-transparent'>
+          <OpenLink project={project} isIE={isIE}/>
           <a 
-            className={getProjectOpenButtonClass(project.isCurrentProject)} 
-            href={project.link} 
-            id={project.id + '-open'}>
-            {'Открыть'}
-          </a>
-          <a 
-            className='btn btn-outline-secondary btn-block' 
+            className='project__button btn btn-outline-secondary btn-block' 
             href={project.git} 
             id={project.id+'-git'}>
             {'Код на GitHub'}
           </a>
-          <button className='btn btn-outline-secondary btn-block text-centerd-flex d-md-none' type='button' onClick={this.switchOpenState}
-          title = {(isForcedOpen ? 'Свернуть' : 'Развернуть') + ' блок с подробной информацией и скриншотом'}>
-          {isForcedOpen ? 'Свернуть' : 'Развернуть'}</button>
+          <button 
+            className='project__button btn btn-outline-secondary btn-block text-centerd-flex d-md-none' 
+            type='button' 
+            onClick={this.switchOpenState}
+            title = {(isForcedOpen ? 'Свернуть' : 'Развернуть') + ' блок с подробной информацией и скриншотом'}>
+            {isForcedOpen ? 'Свернуть' : 'Развернуть'}
+           </button>
         </div>
       </div>
       )

@@ -9,7 +9,7 @@ export default [
   details: ["Верстка"],
   info: '2 фикс. страницы, 1 слайдер (CSS), 1 форма, popup`ы, подменю',
   adaptive: false, 
-  IE: true
+  IESupport: true
 },
 
 {id: 'id-2',
@@ -22,7 +22,7 @@ export default [
   details: ["Верстка"],
   info: '2 фикс. страницы, 1 слайдер (CSS), 1 форма',
   adaptive: false, 
-  IE: true
+  IESupport: true
 },
 
 {id: 'id-3',
@@ -35,7 +35,7 @@ export default [
   details: ["Верстка", "Gulp", "Less"],
   info: '3 адаптивных страницы, мобильное меню, 1 слайдер (JS), 1 форма',
   adaptive: true, 
-  IE: true
+  IESupport: true
 },
 
 {id: 'id-4',
@@ -48,7 +48,7 @@ export default [
   details: ["Верстка", "Gulp", "SASS"],
   info: '1 адаптивная страница, мобильное меню, 3 слайдера (JS), 1 форма',
   adaptive: true, 
-  IE: true
+  IESupport: true
 },
 
 {id: 'id-5',
@@ -61,7 +61,7 @@ export default [
   details: ["React"],
   info: 'React. 2 адаптивных экрана (экран игры, экран настройки)',
   adaptive: true, 
-  IE: true
+  IESupport: true
 },
 
 {id: 'id-6',
@@ -74,7 +74,7 @@ export default [
   details: ["JS ES5"],
   info: 'Только модули на JS ES5. Верстка - HTML Academy, адаптив',
   adaptive: true, 
-  IE: false
+  IESupport: false
 },
 
 {id: 'id-7',
@@ -87,7 +87,7 @@ export default [
   details: ["JS ES5"],
   info: 'Только модули на JS ES5. Верстка - HTML Academy, фикс. макет',
   adaptive: false, 
-  IE: false
+  IESupport: false
 },
 
 {id: 'id-0',
@@ -100,7 +100,7 @@ export default [
   details: ["React", "Bootstrap"],
   info: 'Просто попытки применить как можно больше разных классов Bootstrap',
   adaptive: true, 
-  IE: true,
+  IESupport: true,
   isCurrentProject: true
 },
 
@@ -114,6 +114,6 @@ export default [
   details: ["Верстка", "Gulp", "SASS"],
   info: '1 адаптивная страница, мобильное меню, индикатор прокрутки',
   adaptive: true, 
-  IE: true
+  IESupport: true
 }
 ]

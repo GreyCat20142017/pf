@@ -1,21 +1,22 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {getDropdownDelay, getKeyCodes, getArrayFromObject} from '../functions';
-import './Header.css';
+
 import {sprite} from '../sprite'
 
 import About from './About'
+import './Header.css';
 
 const Title = (props) => (Title &&  <h4>{props.children}</h4>);
 const Subtitle = (props) => (Subtitle &&  <p><small className='header__prolog'>{props.children}</small></p>);
 const Info = (props) =>  (Info && 
 	<div className ='header__person col-4 col-md-3 col-lg-2'>
-		<div className='header__ava-wrapper card w-100 bg-light'>	
+		<div className='header__ava-wrapper card w-100 bg-transparent'>	
 			<div className='header__nickname card-text text-center p-1'><small>{props.nickname}</small></div>
-				<img className='header__ava card-img-top img-thumbnail img-responsive' width="90" height="100" src={'./img/ava.jpg'} alt='Аватарка'/>			
+				<img className='header__ava card-img-top img-thumbnail img-responsive bg-transparent' width="90" height="100" src={'./img/svg/ava.svg'} alt='Аватарка'/>			
 			
 				<div className='header__name dropdown card-text text-center text-wrap p-1'>
-				  <button className='btn btn-light btn-outline-warning text-secondary dropdown-toggle w-100' type='button' data-toggle='dropdown' 
+				  <button className='header__toggle btn btn-outline-warning text-secondary dropdown-toggle w-100' type='button' data-toggle='dropdown' 
 				  	 onClick={props.switchDropdown} onBlur={props.blurDropdown} title='Контакты'>
 				    {props.name}
 				  </button>
@@ -130,7 +131,7 @@ export default class Header extends Component {
 		const headerSwitcherStyle = 'header__switcher btn btn-warning btn-sm ' + (allIsCollapsed ? 'btn-block' : 'p-2');	
 
 		return (
-		<header className='header bg-light shadow-sm px-2' onKeyDown={this.onDropEscEvent}>			
+		<header className='header shadow-sm px-2' onKeyDown={this.onDropEscEvent}>			
 			<h4 className='header__title text-center my-3'>{title}</h4>
 			<div className='header__wrapper py-1 my-1'>
 			<button 
@@ -140,7 +141,7 @@ export default class Header extends Component {
 			  {allIsCollapsed ? 'Развернуть весь скрытый заголовок портфолио...' : ''}
 			</button>
 
-			<div className={'header__ content row text-align-center ' + (allIsCollapsed ? 'collapse' : '')}>
+			<div className={'header__content row text-align-center ' + (allIsCollapsed ? 'collapse' : '')}>
 				<Info 
 					name={name} 
 					nickname={nickname} 

@@ -66,10 +66,13 @@ export const getCurrentFilterState = (positions, states)  => {
 		return temporaryArray;		
 	};
 
+export const getArrayFromObject = function (obj) {
+	return Object.keys(obj).map(function (key) {
+		return obj[key];
+	});
+};
 
-	export const getArrayFromObject = function (obj) {
-		return Object.keys(obj).map(function (key) {
-			return obj[key];
-		});
-	};
-
+export const getIsIECheckResult = () => {
+	const userAgent = window.navigator.userAgent;
+  return (userAgent.indexOf('Trident') !== -1) || (userAgent.indexOf('MSIE') !== -1);
+};

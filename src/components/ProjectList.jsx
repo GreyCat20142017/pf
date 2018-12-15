@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
 import Project from './Project'
-import {getCurrentProjectClass, getDropdownDelay, getKeyCodes} from '../functions';
+import {getCurrentProjectClass, getDropdownDelay, getKeyCodes, getIsIECheckResult} from '../functions';
 
-const getHref = (id, isCurrentProject) => ('#'+ id + (isCurrentProject ? '-git' : '-open'));
+const isIE = getIsIECheckResult();
+const getHref = (id, isCurrentProject, IESupport) => ('#'+ id + ((isCurrentProject || !IESupport) ? '-git' : '-open'));
+
 
 const firstLastLinks = (firstLink, lastLink) => ( 
  	<ul className="nav nav-pills nav-pills-warning m-1">
 		<li className="nav-item mr-1">
-			<a className='btn btn-warning' href={getHref(firstLink.id , firstLink.isCurrentProject)}>Первый</a>
+			<a className='btn btn-warning' href={getHref(firstLink.id , firstLink.isCurrentProject, firstLink.IESupport)}>Первый</a>
 		</li>
 		<li className="nav-item">
-			<a className='btn btn-warning' href={getHref(lastLink.id , lastLink.isCurrentProject)}>Последний</a>
+			<a className='btn btn-warning' href={getHref(lastLink.id , lastLink.isCurrentProject, lastLink.IESupport)}>Последний</a>
 		</li>
 	</ul>
 );
@@ -24,7 +26,7 @@ const Navigation = (props) =>  (
 		  </button>
 		  <div className={'dropdown-menu col-10 col-md-6 col-lg-4 mx-auto pt-4 shadow-lg ' +  (props.isOpen ? 'show' : '') }>
 		   	{props.projects.map(item => 
-		   		<a className='dropdown-item' key={item.id} href={getHref(item.id , item.isCurrentProject)}> {item.name} </a>
+		   		<a className='dropdown-item' key={item.id} href={getHref(item.id, item.isCurrentProject, item.IESupport)}> {item.name} </a>
 		   	)}		   
 		  </div>
 		</div>
@@ -65,7 +67,7 @@ export default class ProjectList extends Component {
 				<ul className = 'projects__items row d-flex justify-content-center list-unstyled'>
 					{projects.map(item => 
 						<li key={item.id} className={'project__item d-flex justify-content-center ' + getCurrentProjectClass(item.isCurrentProject)}>
-							<Project project={item}/> 
+							<Project project={item} isIE={isIE}/> 
 						</li>)}
 				</ul>
 			</div>		
