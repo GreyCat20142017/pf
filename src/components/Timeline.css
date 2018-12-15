@@ -1,0 +1,149 @@
+/* CSS */
+/* Добавление отступов к элементу с классом timeline */
+.timeline {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+/* Создание вертикальной линии с помощью псевдоэлеметна */
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: .125rem;
+  height: 100%;
+  background-color: #dee2e6;
+  left: 2rem;
+  top: 0;
+}
+/* добавление нижнего отступа и левого поля для элементов с классом timeline-wrapper */
+.timeline-wrapper {
+  margin-bottom: 1rem;
+  padding-left: 4rem;
+  width: 94%;
+}
+/* убирание у последнего элемента .timeline-wrapper нижнего отступа */
+.timeline-wrapper:last-child {
+  margin-bottom: 0;
+}
+/* стили для элементов таймлайна #97a0d9 */
+.timeline-item {
+  position: relative;
+  background-color: hsl(232, 46%, 72%);
+  color: #fff;
+  padding: .825rem;
+  border-radius: .25rem;
+}
+/* добавление контрольных точек на вертикальную линию */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: .75rem;
+  height: .75rem;
+  background-color: hsl(232, 46%, 72%);
+  border-radius: .4rem;
+  left: -2.3125rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* добавление стрелочек к элементам таймлайна */
+.timeline-item::after {
+  content: "";	
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-right: 1rem solid hsl(232, 46%, 72%);
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* стили для блока, в котором будет отображаться название статьи */
+.timeline-item-header {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+}
+/* оформление блока, содержащего название раздела */
+.timeline-item-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: .3rem;
+  font-size: .875rem;
+  border-top-right-radius: .25rem;
+}
+/* оформление блока, содержащего дату */
+.timeline-item-date {
+  display: block;
+  font-size: .75rem;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.8);
+  word-wrap: break-word;
+  max-width: 50%;
+}
+/* стили для блока, в который будет выводиться описание статьи */
+.timeline-item-description {
+  display: block;
+  font-size: .875rem;
+  color: rgba(255, 255, 255, .8);
+  line-height: 1.7;
+}
+/* стили для блока, содержащего ссылку "Перейти" */
+.timeline-item-link {
+  display: block;
+  font-size: .875rem;
+  line-height: 1.7;
+  text-align: right;
+}
+/* стили для ссылки "Перейти" */
+.timeline-item-link a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  border-bottom: 1px dashed rgba(255, 255, 255, 1);
+}
+/* стили для ссылки "Перейти" при поднесении к ней курсора или когда она находится в состоянии фокуса */
+.timeline-item-link a:hover, .timeline-item-link a:focus {
+  color: rgba(255, 255, 255, .8);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.8);
+}
+/* для адаптивности (стили для больших экранов) */
+@media (min-width: 768px) {
+  /* для вывода вертикальной линии по центру */
+  .timeline::before {
+    left: 50%;
+  }
+  /* стили для нечётных элементов с классом timeline-wrapper */
+  .timeline-wrapper:nth-child(odd) {
+    padding-right: 2rem;
+    padding-left: 15px;
+    width: 50%;
+  }
+  /* стили для чётных элементов с классом timeline-wrapper */
+  .timeline-wrapper:nth-child(even) {
+    padding-left: 2rem;
+    margin-left: 50%;
+    margin-top: -2rem;
+  }
+  /* дополнительный сдвиг вверх для нечетных элементов (начиная с 3) */
+  .timeline-wrapper:nth-child(2n+3) {
+    margin-top: -2rem;
+  }
+  /* стили для псевдоэлементов ::before элементов таймлайна, расположенных в нечётных контейнерах */  
+  .timeline-wrapper:nth-child(odd) .timeline-item::before {
+    right: -2.5rem;
+    left: unset;
+  }
+  /* стили для псевдоэлементов ::after элементов таймлайна, расположенных в нечётных контейнерах */
+  .timeline-wrapper:nth-child(odd) .timeline-item::after {
+    border-left: 1rem solid hsl(232, 46%, 72%);
+    border-right: none;
+    left: unset;
+    right: -1rem;
+  }
+
+  .timeline-item-header {
+    font-size: 1.125rem;
+  }
+}

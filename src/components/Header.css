@@ -24,16 +24,3 @@
 	height: 20px;
 	width: 20px;
 }
-
-.header__ava-wrapper,
-.header__nickname,
-.header__name,
-.header__ava,
-.header__person {
-	min-width: 100px;	
-	flex-shrink: 0;
-}
-
-.header__info {
-	flex-shrink: 1;
-}

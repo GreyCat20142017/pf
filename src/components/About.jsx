@@ -18,26 +18,29 @@ class About extends React.Component {
 	}
 
 	render() {
-		const about = this.props.about;
+		const {about} = this.props;
 		const aboutStates = this.state.aboutStates;
 		return (
-			<ul className='list-unstyled'>					
-			 {about.map(
-			 	(item, ind) =>
-			 		(<li className='header__text text-muted mt-3' key={ind}>
-						<small className={'header__about ' + (aboutStates[ind] ? 'collapse' : '')} id='collapse'>{item.content} &nbsp;</small>						
-						<button 
-							className='header__about-switcher btn btn-sm btn-outline-secondary badge' 
-							onClick={() => this.onAboutButtonClick(ind)} 
-							title={'Свернуть/развернуть ' + item.title}>
-							{ aboutStates[ind]  ? `${item.title}...` : `Свернуть '${item.title}'`}
-						</button>
-			 		</li>)
-			 	)}			
-			</ul>		
+			<section className='about'>
+				<h2 className='about__title visually-hidden'>О портфолио, проектах и о себе</h2>
+				<ul className='about__list list-unstyled'>					
+				 {about.map(
+				 	(item, ind) =>
+				 		(<li className='about__text text-muted mt-3' key={ind}>
+							<small className={'about__subject ' + (aboutStates[ind] ? 'collapse' : '')}>{item.content} &nbsp;</small>						
+							<button 
+								className='about__switcher btn btn-sm btn-outline-secondary badge' 
+								onClick={() => this.onAboutButtonClick(ind)} 
+								title={'Свернуть/развернуть ' + item.title}>
+								{ aboutStates[ind]  ? `${item.title}...` : `Свернуть '${item.title}'`}
+							</button>
+				 		</li>)
+				 	)}			
+				</ul>		
+				
+			</section>
 			)					
 	}
 }
-
 
 export default About;

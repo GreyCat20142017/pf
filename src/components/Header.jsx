@@ -5,15 +5,17 @@ import {getDropdownDelay, getKeyCodes, getArrayFromObject} from '../functions';
 import {sprite} from '../sprite'
 
 import About from './About'
+import Timeline from './Timeline';
+
 import './Header.css';
 
 const Title = (props) => (Title &&  <h4>{props.children}</h4>);
 const Subtitle = (props) => (Subtitle &&  <p><small className='header__prolog'>{props.children}</small></p>);
 const Info = (props) =>  (Info && 
-	<div className ='header__person col-4 col-md-3 col-lg-2'>
+	<div className ='header__person' style={{width: '120px'}}>
 		<div className='header__ava-wrapper card w-100 bg-transparent'>	
-			<div className='header__nickname card-text text-center p-1'><small>{props.nickname}</small></div>
-				<img className='header__ava card-img-top img-thumbnail img-responsive bg-transparent' width="90" height="100" src={'./img/svg/ava.svg'} alt='Аватарка'/>			
+			<div className='header__nickname card-text text-center p-2'><small>{props.nickname}</small></div>
+				<img className='header__ava card-img-center img-thumbnail bg-transparent mx-auto' width="100" height="100" src={'./img/svg/ava.svg'} alt='Аватарка'/>			
 			
 				<div className='header__name dropdown card-text text-center text-wrap p-1'>
 				  <button className='header__toggle btn btn-outline-warning text-secondary dropdown-toggle w-100' type='button' data-toggle='dropdown' 
@@ -126,12 +128,12 @@ export default class Header extends Component {
 	}
 
 	render () {
-		const {title, subtitle, about, name, nickname, contacts} = this.props.data;
+		const {title, subtitle, about, name, nickname, contacts, timeline} = this.props.data;
 		const {allIsCollapsed, dropIsOpen, modalIsOpen} = this.state;		
 		const headerSwitcherStyle = 'header__switcher btn btn-warning btn-sm ' + (allIsCollapsed ? 'btn-block' : 'p-2');	
 
 		return (
-		<header className='header shadow-sm px-2' onKeyDown={this.onDropEscEvent}>			
+			<header className='header shadow-sm px-2' onKeyDown={this.onDropEscEvent}>	
 			<h4 className='header__title text-center my-3'>{title}</h4>
 			<div className='header__wrapper py-1 my-1'>
 			<button 
@@ -141,7 +143,7 @@ export default class Header extends Component {
 			  {allIsCollapsed ? 'Развернуть весь скрытый заголовок портфолио...' : ''}
 			</button>
 
-			<div className={'header__content row text-align-center ' + (allIsCollapsed ? 'collapse' : '')}>
+			<div className={'header__content ' + (allIsCollapsed ? 'collapse' : ' d-flex')}>
 				<Info 
 					name={name} 
 					nickname={nickname} 
@@ -151,9 +153,10 @@ export default class Header extends Component {
 					blurDropdown={this.blurDropdown} 
 					switchModal={this.switchModal}/>	
 
-				<div className='header__info col-8 col-md-7 col-lg-10'>						
+				<div className='header__info ml-3 w-auto'>						
 					<Subtitle>{subtitle}</Subtitle>
 					<About about={about}/>	
+					<Timeline timeline={timeline}/>
 				</div>
 
 				</div>
@@ -161,6 +164,7 @@ export default class Header extends Component {
 
 			<Modal modalIsOpen={modalIsOpen} contacts={contacts} switchModal={this.switchModal}  onModalEscEvent={this.onModalEscEvent} rr={this.getRef}/>
 		</header>  
+
 		)
 	}
 }

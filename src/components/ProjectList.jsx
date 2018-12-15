@@ -64,7 +64,7 @@ export default class ProjectList extends Component {
 			<div className='projects__list'  onKeyDown={this.onDropEscEvent}> 
 				<Navigation projects={projects} isOpen={this.state.dropIsOpen} 
 					switchDropdown={this.switchDropdown} blurDropdown={this.blurDropdown}/>
-				<ul className = 'projects__items row d-flex justify-content-center list-unstyled'>
+				<ul className = 'projects__items row d-flex justify-content-start mx-auto list-unstyled'>
 					{projects.map(item => 
 						<li key={item.id} className={'project__item d-flex justify-content-center ' + getCurrentProjectClass(item.isCurrentProject)}>
 							<Project project={item} isIE={isIE}/> 
