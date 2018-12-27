@@ -1,12 +1,13 @@
 .header {
 	padding: 10px 0;
 	margin: 0 auto;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
   display: block;
 }
 
 .header__wrapper {
 	position: relative;
+  min-width: 120px;
 }
 
 .header__switcher {
@@ -16,11 +17,17 @@
   top: 0;
 }
 
+.header__contact {
+	position: relative;
+}
 .header__icon {
+	position: absolute;
 	background-repeat: no-repeat;
-	background-position: center left;
-	background-size: contain;  
+	background-position: center center;
+	background-size: contain;
 	display: inline-block;
+	left: 10px;
+	top: 2px;
 	height: 20px;
 	width: 20px;
 }

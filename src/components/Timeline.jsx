@@ -20,15 +20,15 @@ class Timeline extends React.Component {
 		<div className='about__timeline'>		
 			<section className={'timeline ' + (isOpen ? ''  : 'collapse')}>
 				<h2 className='timeline__title visually-hidden'>Таймлайн</h2>			
-				<ul className = 'row list-unstyled'>
+				<ul className = 'timeline__row row list-unstyled'>
 					 {timeline.map((item, ind) =>
-				   	(<li className='timeline-wrapper' key={ind}>			
-				  		<div className='timeline-item'>
-					      <span className='timeline-item-section'>{item.section}</span>
-					      <span className='timeline-item-date'>{item.date}</span>
-					      <span className='timeline-item-header'>{item.header}</span>
-					      <span className='timeline-item-description'>{item.description}</span>
-					      <span className='timeline-item-link'>
+				   	(<li className='timeline__wrapper' key={ind}>			
+				  		<div className='timeline__item'>
+					      <span className='timeline__item-section'>{item.section}</span>
+					      <span className='timeline__item-date'>{item.date}</span>
+					      <span className='timeline__item-header'>{item.header}</span>
+					      <span className='timeline__item-description'>{item.description}</span>
+					      <span className='timeline__item-link'>
 					        <a href={item.linkHref} title='Открыть опубликованный проект'>{item.linkText}</a>
 					      </span>
 				    	</div>								  
