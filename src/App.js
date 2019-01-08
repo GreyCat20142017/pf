@@ -16,11 +16,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.projects = pfdata.slice().sort((left, right) => getOrderById(left, right));
+    this.projects = pfdata.slice().filter(item => !item.hidden).sort((left, right) => getOrderById(left, right));
     this.filterPositions = createFilterPositionByData(this.projects, 'details');
     this.state = {
-      filterStates: this.filterPositions.map(item => false), 
-      isFilterConjunction: false    
+      filterStates: this.filterPositions.map(item => false),
+      isFilterConjunction: false
     };
   }
 
@@ -32,23 +32,23 @@ class App extends Component {
   }
 
   changeCondition = () => (e) =>  {
-    e.preventDefault();  
+    e.preventDefault();
     this.setState({ isFilterConjunction: !this.state.isFilterConjunction});
   }
 
   resetFilter = () => (e) =>  {
-    e.preventDefault();  
+    e.preventDefault();
     const newStates = this.state.filterStates.map(item => false);
     this.setState({filterStates: newStates, isFilterConjunction: false});
   }
 
   render() {
-     const currentFilter = getCurrentFilterState(this.filterPositions, this.state.filterStates); 
+     const currentFilter = getCurrentFilterState(this.filterPositions, this.state.filterStates);
      const projects = this.projects.filter(
       project => (currentFilter.length === 0 ? true : isMatch(currentFilter, project.details, this.state.isFilterConjunction))
-     );   
+     );
 
-      return (         
+      return (
         <div className='container w-100'>
 
           <ErrorBoundary pfstatic={personal.pfstatic}>
@@ -56,21 +56,21 @@ class App extends Component {
           </ErrorBoundary>
 
           <ErrorBoundary pfstatic={personal.pfstatic}>
-            <Filter 
-              filterPositions = {this.filterPositions} 
-              filterStates = {this.state.filterStates}  
+            <Filter
+              filterPositions = {this.filterPositions}
+              filterStates = {this.state.filterStates}
               isFilterConjunction = {this.state.isFilterConjunction}
-              toggle = {this.toggle} 
-              changeCondition = {this.changeCondition} 
-              resetFilter = {this.resetFilter}/>        
-            <ProjectList projects={projects}/> 
+              toggle = {this.toggle}
+              changeCondition = {this.changeCondition}
+              resetFilter = {this.resetFilter}/>
+            <ProjectList projects={projects}/>
           </ErrorBoundary>
 
           <Footer contacts={personal.contacts} nickname={personal.nickname}/>
-        </div>      
+        </div>
       )
   }
-  
+
 }
 
 export default App;

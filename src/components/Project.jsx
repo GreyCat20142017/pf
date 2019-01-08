@@ -10,14 +10,14 @@ const OpenLink = (props) => {
   const {project, isIE} = props;
   return  (!project.IESupport && isIE) ?
     (<button className={'project__button ' + getProjectOpenButtonClass(project.isCurrentProject)} type='button' disabled>
-      {'Не поддерживается в IE'} 
+      {'Не поддерживается в IE'}
     </button>)
   :
-    (<a 
-      className={'project__button ' + getProjectOpenButtonClass(project.isCurrentProject)} 
-      href={project.link} 
+    (<a
+      className={'project__button ' + getProjectOpenButtonClass(project.isCurrentProject)}
+      href={project.link}
       id={project.id + '-open'}>
-      {'Открыть'}
+      {project.inDev ? 'Полуфабрикат' : 'Открыть'}
     </a>
   )
 };
@@ -27,7 +27,7 @@ export default class Project extends Component {
   static OpenLink = OpenLink;
 
   static defaultProps = {
-    isForcedOpen: false      
+    isForcedOpen: false
   };
 
   constructor(props) {
@@ -44,7 +44,7 @@ export default class Project extends Component {
     const details = project.details.join(', ');
     const isForcedOpen = this.state.isForcedOpen;
     const revertStyle = {height: CARD_REVERT_HEIGHT + 'px'};
- 
+
     return  (
       <div className='project card border-secondary h-100 shadow-lg' tab-index='0' style={{width: CARD_WIDTH + 'px'}}>
         <h2 className='project__name card-header text-center bg-light' title={project.description + ', '+project.details}>{project.name}</h2>
@@ -57,14 +57,14 @@ export default class Project extends Component {
 
            <picture className='project__picture'>
             <source srcSet={'./img/webp/' + project.shortName + '@1x.webp 1x, ./img/webp/' + project.shortName + '@2x.webp 2x'} type='image/webp'/>
-            <img 
-              className='project__frontside card-img-top img-thumbnail shadow-sm mb-3'  
-              src={'./img/' + project.shortName + '@1x.jpg'}   
-              srcSet={'./img/' + project.shortName + '@2x.jpg'}  
+            <img
+              className='project__frontside card-img-top img-thumbnail shadow-sm mb-3'
+              src={'./img/' + project.shortName + '@1x.jpg'}
+              srcSet={'./img/' + project.shortName + '@2x.jpg'}
               alt={project.name}
               style={revertStyle}/>
             </picture>
-            
+
             <div className='project__backside shadow-sm mb-3' style={revertStyle}>
                 <p>{project.info}</p>
                 <p className='project__specific font-weight-bold border'>{'Поддержка IE-11: '+ (project.IESupport ? 'да' : 'нет')}</p>
@@ -77,15 +77,15 @@ export default class Project extends Component {
 
         <div className='project__buttons card-footer bg-transparent'>
           <OpenLink project={project} isIE={isIE}/>
-          <a 
-            className='project__button btn btn-outline-secondary btn-block' 
-            href={project.git} 
+          <a
+            className='project__button btn btn-outline-secondary btn-block'
+            href={project.git}
             id={project.id+'-git'}>
             {'Код на GitHub'}
           </a>
-          <button 
-            className='project__button btn btn-outline-secondary btn-block text-centerd-flex d-md-none' 
-            type='button' 
+          <button
+            className='project__button btn btn-outline-secondary btn-block text-centerd-flex d-md-none'
+            type='button'
             onClick={this.switchOpenState}
             title = {(isForcedOpen ? 'Свернуть' : 'Развернуть') + ' блок с подробной информацией и скриншотом'}>
             {isForcedOpen ? 'Свернуть' : 'Развернуть'}
