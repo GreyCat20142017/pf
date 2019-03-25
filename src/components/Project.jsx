@@ -8,9 +8,9 @@ const CARD_REVERT_HEIGHT = 258;
 
 const OpenLink = (props) => {
   const {project, isIE} = props;
-  return  (!project.IESupport && isIE) ?
+  return  ((!project.IESupport && isIE) || project.link === '') ?
     (<button className={'project__button ' + getProjectOpenButtonClass(project.isCurrentProject)} type='button' disabled>
-      {'Не поддерживается в IE'}
+      {project.link === '' ? 'Не опубликован' : 'Не поддерживается в IE'}
     </button>)
   :
     (<a
@@ -47,7 +47,9 @@ export default class Project extends Component {
 
     return  (
       <div className='project card border-secondary h-100 shadow-lg' tab-index='0' style={{width: CARD_WIDTH + 'px'}}>
-        <h2 className='project__name card-header text-center bg-light' title={project.description + ', '+project.details}>{project.name}</h2>
+        <h2 className='project__name card-header text-center bg-light' title={project.description + ', '+project.details}>
+          <small>{project.name}</small>
+        </h2>
 
         <div className={'project__body card-body h-100' + (isForcedOpen ? '' : ' d-none d-md-block')}>
           <p className='project__description text-center card-text font-weight-bold' style={{minHeight: CARD_HEADER_HEIGHT + 'px'}}>
