@@ -10,7 +10,8 @@ export default [
     details: ["Верстка"],
     info: '2 фикс. страницы, 1 слайдер (CSS), 1 форма, popup`ы, подменю',
     adaptive: false,
-    IESupport: true
+    IESupport: true,
+    hidden: true
   },
 
   {
@@ -52,19 +53,21 @@ export default [
     details: ["Верстка", "Gulp", "SASS"],
     info: '1 адаптивная страница, мобильное меню, 3 слайдера (JS), 1 форма',
     adaptive: true,
-    IESupport: true
+    IESupport: true,
+    hidden: true
+
   },
 
   {
     id: 'id-05',
     name: 'Memory',
     shortName: 'memory',
-    about: 'Просто первое SPA для ознакомления с React',
+    about: 'Просто первое приложение на React',
     link: 'https://greycat20142017.github.io/memory/',
     git: 'https://github.com/GreyCat20142017/memory',
     description: 'Игра по мотивам "Memory game"',
     details: ["React"],
-    info: 'React, SPA. 2 адаптивных экрана (экран игры, экран настройки)',
+    info: 'React. 2 адаптивных экрана (экран игры, экран настройки)',
     adaptive: true,
     IESupport: true
   },
@@ -135,25 +138,10 @@ export default [
     git: 'https://github.com/GreyCat20142017/knight',
     description: 'Игра по мотивам одной внешней обработки',
     details: ["React", "Redux"],
-    info: 'React, SPA',
+    info: 'React',
     adaptive: true,
     IESupport: false,
     inDev: false
-  },
-
-  {
-    id: 'id-10',
-    name: 'Бормотунчик',
-    shortName: 'bormo',
-    about: 'Набросок интерфейса приложения для ознакомления с Material-UI',
-    link: 'https://greycat20142017.github.io/bormo/',
-    git: 'https://github.com/GreyCat20142017/bormo',
-    description: 'Обучающее приложение',
-    details: ["React", "React Router", "Material-UI"],
-    info: 'React, SPA',
-    adaptive: true,
-    IESupport: false,
-    inDev: true
   },
 
   {
@@ -161,7 +149,7 @@ export default [
     name: 'YetiCave',
     shortName: 'yeticave',
     about: 'Личный проект на интенсиве HTML Academy "PHP, уровень 1"',
-    link: '',
+    link: 'http://yeti.pugalk8s.beget.tech',
     git: 'https://github.com/GreyCat20142017/483989-yeticave',
     description: 'Интернет-аукцион',
     details: ["PHP"],
@@ -183,6 +171,35 @@ export default [
     info: 'Только модули на PHP. Верстка - HTML Academy, фикс. макет',
     adaptive: false,
     IESupport: false,
+    inDev: false,
+    hidden: true
+  },
+  {
+    id: 'id-13',
+    name: 'Captured',
+    shortName: 'captured',
+    about: 'Нечто по мотивам одного интересного проекта',
+    link: 'http://captured.pugalk8s.beget.tech',
+    git: 'https://github.com/GreyCat20142017/captured',
+    description: 'Микробложек',
+    details: ["PHP", "Bootstrap", "MDB"],
+    info: 'PHP, JS ES5, "переВерстка" на Material Design Bootsrap',
+    adaptive: 'true',
+    IESupport: true,
     inDev: false
-  }
+  },
+  {
+    id: 'id-14',
+    name: 'Бормотунчик',
+    shortName: 'bormo',
+    about: 'Набросок приложения для ознакомления с Material-UI',
+    link: 'https://greycat20142017.github.io/bormo/',
+    git: ['https://github.com/GreyCat20142017/bormo', 'https://github.com/GreyCat20142017/bormophp'],
+    description: 'Обучающее приложение',
+    details: ["React", "React Router", "Material-UI", "PHP"],
+    info: 'React + PHP + MySQL',
+    adaptive: true,
+    IESupport: false,
+    inDev: true
+  },
 ]

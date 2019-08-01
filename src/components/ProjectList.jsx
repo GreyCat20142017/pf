@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Project from './Project'
+import Project from './project/Project'
 import {getCurrentProjectClass, getDropdownDelay, getKeyCodes, getIsIECheckResult} from '../functions';
 
 const isIE = getIsIECheckResult();

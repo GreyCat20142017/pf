@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 
 import pfdata from './pfdata';
 import personal from './personal';
-import {getOrderById, isMatch, createFilterPositionByData, getCurrentFilterState} from './functions';
+import {getOrderById, isMatch, createFilterPositionByData, getCurrentFilterState, filterOperations, fliterResetOn} from './functions';
 
-import Header from './components/Header';
-import Filter from './components/Filter';
+import Header from './components/header/Header';
+import Filter from './components/filter/Filter';
 import ProjectList from './components/ProjectList';
-import Footer from './components/Footer';
+import Footer from './components/footer/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 class App extends Component {
   constructor(props) {
@@ -20,32 +19,37 @@ class App extends Component {
     this.filterPositions = createFilterPositionByData(this.projects, 'details');
     this.state = {
       filterStates: this.filterPositions.map(item => false),
-      isFilterConjunction: false
+      filterOperation : filterOperations.ONLY
     };
   }
 
   toggle = (ind) => (e) =>  {
+    const {filterStates} = this.state;
+    let newStates = [...filterStates];
     e.preventDefault();
-    const newStates = this.state.filterStates.slice();
-    newStates[ind] = !newStates[ind];
+    if (this.state.filterOperation === fliterResetOn) {
+      newStates = filterStates.map((item, index) => (index === ind));
+    } else {
+      newStates[ind] = !newStates[ind];
+    };
     this.setState({ filterStates: newStates});
-  }
-
-  changeCondition = () => (e) =>  {
-    e.preventDefault();
-    this.setState({ isFilterConjunction: !this.state.isFilterConjunction});
   }
 
   resetFilter = () => (e) =>  {
     e.preventDefault();
     const newStates = this.state.filterStates.map(item => false);
-    this.setState({filterStates: newStates, isFilterConjunction: false});
+    this.setState({filterStates: newStates});
+  }
+
+  changeOperation = (operation) => {
+    this.setState({filterOperation : operation});
   }
 
   render() {
      const currentFilter = getCurrentFilterState(this.filterPositions, this.state.filterStates);
+     const {filterStates, filterOperation} = this.state;
      const projects = this.projects.filter(
-      project => (currentFilter.length === 0 ? true : isMatch(currentFilter, project.details, this.state.isFilterConjunction))
+      project => (currentFilter.length === 0 ? true : isMatch(currentFilter, project.details, filterOperation))
      );
 
       return (
@@ -58,11 +62,13 @@ class App extends Component {
           <ErrorBoundary pfstatic={personal.pfstatic}>
             <Filter
               filterPositions = {this.filterPositions}
-              filterStates = {this.state.filterStates}
-              isFilterConjunction = {this.state.isFilterConjunction}
+              filterStates = {filterStates}
+              filterOperation = {filterOperation}
               toggle = {this.toggle}
               changeCondition = {this.changeCondition}
-              resetFilter = {this.resetFilter}/>
+              resetFilter = {this.resetFilter}
+              changeOperation = {this.changeOperation}
+              />
             <ProjectList projects={projects}/>
           </ErrorBoundary>
 
