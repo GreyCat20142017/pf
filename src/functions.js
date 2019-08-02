@@ -1,20 +1,9 @@
 import cn from 'classnames';
-
-const dropdownDelay = 444;
-
-const keyCodes = {Esc: 27, Enter: 13};
-
-export const filterOperations = {OR : 'ИЛИ', AND: 'И' , ONLY: 'ТОЛЬКО'};
-
-export const fliterResetOn = filterOperations.ONLY;
-
-export const getKeyCodes = () => keyCodes;
+import {FILTER_OPERATIONS} from './constants';
 
 const stripId = (id) => (id.replace('id-', ''));
 
 export const getOrderById = (left, right) => ( parseInt(stripId(right.id), 10) - parseInt(stripId(left.id), 10));
-
-export const getDropdownDelay = () => dropdownDelay;
 
 export const getCurrentProjectClass = () => 'col-10 col-md-6 col-lg-4 mx-auto pt-4';
 
@@ -34,7 +23,7 @@ export const getToggledButtonClass = (stateByInd) => {
 };
 
 export const isMatch = (currentFilter, projectDetails, filterOperation) => {
-  return filterOperation === filterOperations.AND ?
+  return filterOperation === FILTER_OPERATIONS.AND ?
     currentFilter.every(item => projectDetails.indexOf(item) >= 0) :
     currentFilter.some(item => projectDetails.indexOf(item) >= 0);
 };

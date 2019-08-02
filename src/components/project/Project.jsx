@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import GitButton from '../../gitButton/GitButton';
+import GitButton from '../gitbutton/GitButton';
 import { getProjectOpenButtonClass} from '../../functions';
 import './Project.css';
 

@@ -1,7 +1,7 @@
 import {getToggledButtonClass} from '../../functions';
 import React from 'react';
 
-const FilterCategories = ({filterPositions, filterStates, toggle}) =>  (
+const FilterCategories = ({filterPositions, filterStates, toggle}) => (
   <div className='filter__category row justify-content-center flex-wrap'>
     {filterPositions.map((item, ind) =>
       <button
