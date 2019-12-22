@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
-
-import pfdata from './pfdata';
-import personal from './personal';
-import {getOrderById, isMatch, createFilterPositionByData, getCurrentFilterState} from './functions';
-import {sprite} from './sprite';
-
 import Header from './components/header/Header';
 import Filter from './components/filter/Filter';
 import ProjectList from './components/projectlist/ProjectList';
 import Footer from './components/footer/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import pfdata from './pfdata';
+import personal from './personal';
+import {getOrderById, isMatch, createFilterPositionByData, getCurrentFilterState} from './functions';
 import {FILTER_OPERATIONS, FILTER_RESET_ON} from './constants';
+import {sprite} from './sprite';
+
+import './bootstrap.min.css';
 
 class App extends Component {
   constructor(props) {
@@ -76,10 +74,10 @@ class App extends Component {
         <Footer contacts={personal.contacts} nickname={personal.nickname}/>
 
         <a className='btn-warning shadow fab fab--up' href='#header' title='К заголовку'>
-          {sprite('up', 40, 40, 'darkgrey')}
+          {sprite('up', 40, 40, '#59698d')}
         </a>
         <a className='btn-warning shadow fab fab--down' href='#footer' title='К подвалу'>
-          {sprite('down', 40, 40, 'darkgrey')}
+          {sprite('down', 40, 40, '#59698d')}
         </a>
       </div>
     );

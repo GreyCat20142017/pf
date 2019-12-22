@@ -8,7 +8,7 @@ const Footer = ({nickname, contacts}) => (
     <ul className='footer__contacts justify-content-center d-flex flex-wrap list-unstyled'>
       {getArrayFromObject(contacts).map(item => (
         <li className='footer__contact mx-1' key={item.name}>
-          <a className='footer__link btn btn-secondary shadow'
+          <a className='footer__link btn btn-primary shadow'
              style={{borderRadius: '50%', padding: '4px 9px 6px'}}
              href={item.link} title={item.link}>
             <span className='footer__icon'>{sprite(item.icon, 16, 'white')}</span>

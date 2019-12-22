@@ -6,7 +6,7 @@ class Timeline extends React.Component {
 
   constructor (props) {
     super(props);
-    this.state = {isOpen: true};
+    this.state = {isOpen: false};
   }
 
   onSwitcherClick = () => {
@@ -18,6 +18,12 @@ class Timeline extends React.Component {
     const timeline = this.props.timeline;
     return (
       <div className='about__timeline'>
+        <button
+          className='timeline__switcher btn btn-sm btn-outline-secondary badge mt-2'
+          onClick={this.onSwitcherClick}
+          title={isOpen ? 'Свернуть' : 'Осторожно! Баловство под названием таймлайн в развернутом виде занимает много места!'}>
+          {isOpen ? `Свернуть таймлайн` : `Таймлайн...`}
+        </button>
         <section className={'timeline ' + (isOpen ? '' : 'collapse')}>
           <h2 className='timeline__title visually-hidden'>Таймлайн</h2>
           <ul className='timeline__row row list-unstyled'>
@@ -39,12 +45,6 @@ class Timeline extends React.Component {
             )}
           </ul>
         </section>
-        <button
-          className='timeline__switcher btn btn-sm btn-outline-secondary badge mt-2'
-          onClick={this.onSwitcherClick}
-          title={isOpen ? 'Свернуть' : 'Осторожно! Баловство под названием таймлайн в развернутом виде занимает много места!'}>
-          {isOpen ? `Свернуть таймлайн` : `Таймлайн...`}
-        </button>
       </div>
     )
   }

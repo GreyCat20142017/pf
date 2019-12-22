@@ -1,31 +1,14 @@
 import React, {Component} from 'react';
 
 import GitButton from '../gitbutton/GitButton';
-import { getProjectOpenButtonClass} from '../../functions';
+import OpenButton from '../openbutton/OpenButton';
 import './Project.css';
 
 const CARD_WIDTH = 310;
 const CARD_HEADER_HEIGHT = 48;
 const CARD_REVERT_HEIGHT = 258;
 
-const OpenLink = ({project, isIE}) => {
-  return ((!project.IESupport && isIE) || project.link === '') ?
-    (<button className={'project__button ' + getProjectOpenButtonClass(project.isCurrentProject)} type='button'
-             disabled>
-      {project.link === '' ? 'Не опубликован' : 'Не поддерживается в IE'}
-    </button>)
-    :
-    (<a
-        className={'project__button ' + getProjectOpenButtonClass(project.isCurrentProject)}
-        href={project.link}
-        id={project.id + '-open'}>
-        {project.inDev ? 'Полуфабрикат' : 'Открыть'}
-      </a>
-    );
-};
-
 export default class Project extends Component {
-  static OpenLink = OpenLink;
 
   static defaultProps = {
     isForcedOpen: false
@@ -85,7 +68,7 @@ export default class Project extends Component {
         </div>
 
         <div className='project__buttons card-footer bg-transparent'>
-          <OpenLink project={project} isIE={isIE}/>
+          <OpenButton project={project} isIE={isIE}/>
           <GitButton project={project}/>
           <button
             className='project__button btn btn-outline-secondary btn-block text-centerd-flex d-md-none'

@@ -71,7 +71,8 @@ export default class Header extends Component {
   render() {
     const {title, subtitle, about, name, nickname, contacts, timeline} = this.props.data;
     const {allIsCollapsed, dropIsOpen, modalIsOpen} = this.state;
-    const headerSwitcherStyle = 'header__switcher btn btn-warning btn-sm ' + (allIsCollapsed ? 'btn-block' : 'p-2');
+    // const headerSwitcherStyle = 'header__switcher btn btn-warning btn-sm ' + (allIsCollapsed ? 'btn-block' : 'p-2');
+    const headerSwitcherStyle = 'header__switcher btn btn-warning btn-sm my-1 btn-block';
 
     return (
       <header className='header shadow-sm px-2' id='header' onKeyDown={this.onDropEscEvent}>
@@ -81,7 +82,7 @@ export default class Header extends Component {
             className={headerSwitcherStyle}
             onClick={this.onAllButtonClick}
             title={allIsCollapsed ? 'Развернуть весь заголовок...' : 'Свернуть весь заголовок...'}>
-            {allIsCollapsed ? 'Развернуть скрытый заголовок портфолио...' : ''}
+            {allIsCollapsed ? 'Развернуть скрытый заголовок портфолио...' : 'Свернуть весь заголовок портфолио...'}
           </button>
 
           <div className={'header__content ' + (allIsCollapsed ? 'collapse' : ' d-flex')}>

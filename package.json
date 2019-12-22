@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://greycat20142017.github.io/pf",
   "dependencies": {
-    "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
