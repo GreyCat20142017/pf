@@ -187,7 +187,7 @@ export default [
     details: ['PHP', 'Bootstrap', 'MDB', 'MySQL', 'JS ES5'],
     info: 'PHP, JS ES5, "переВерстка" на Material Design Bootsrap',
     adaptive: 'true',
-    IESupport: true,
+    IESupport: false,
     inDev: false
   },
 
@@ -210,7 +210,7 @@ export default [
     name: 'Rtasks',
     shortName: 'rtasks',
     about: 'Разные задачи с использованием React',
-    link: ['https://greycat20142017.github.io/rtask/', 'https://greycat20142017.github.io/rtasksmui/'],
+    link: ['https://greycat20142017.github.io/rtasks/', 'https://greycat20142017.github.io/rtasksmui/'],
     git: ['https://github.com/GreyCat20142017/rtasks', 'https://github.com/GreyCat20142017/rtasksmui'],
     description: 'Тренировка на котиках (2 части)',
     details: ['React', 'Firebase', 'Bootstrap', 'Material-UI'],

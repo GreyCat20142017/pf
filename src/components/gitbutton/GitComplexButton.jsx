@@ -9,7 +9,7 @@ const GitComplexButton = ({project}) => (
             ariaInfo={project.id + '-git'} togglerText={'Код на Github'}
             css={{
               togglerCss: 'project__button btn btn-outline-secondary btn-block dropdown-toggle',
-              linkCss: 'project__button w-100 btn btn-secondary btn-block'
+              linkCss: 'project__button w-100 btn btn-link'
             }}
   />
 );

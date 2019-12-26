@@ -9,7 +9,7 @@ const OpenComplexButton = ({project}) => (
             ariaInfo={project.id + '-open'} togglerText={'Открыть'}
             css={{
               togglerCss: 'project__button btn btn-outline-secondary btn-block dropdown-toggle',
-              linkCss: 'project__button w-100 btn btn-secondary btn-block'
+              linkCss: 'project__button w-100 btn btn-link'
             }}
   />
 );
